@@ -5,13 +5,14 @@ import "./Login.scss";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { app, auth, storage, db } from '../Firebase';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
+  const navigate = useNavigate();
 
   const handleImageChange = (event) => {
     const selectedImage = event.target.files[0];
@@ -44,11 +45,12 @@ const Signup = () => {
         // Add other user information here if needed
       });
 
-      // Optionally, you can do something after successful signup
+      
       console.log('Signup successful!');
+      navigate("/signin")
       
     } catch (error) {
-      console.error('Error during signup:', error.message);
+      console.error('Error during signup:', error);
     }
   };
 

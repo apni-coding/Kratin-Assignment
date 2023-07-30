@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {  useState } from 'react';
+import { Link, useNavigate,  } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../Firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import './Login.scss';
 
+
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+    const navigate = useNavigate()
 
   const handleSignIn = async (event) => {
     event.preventDefault();
@@ -17,7 +19,7 @@ const SignIn = () => {
       // Sign in the user with email and password
       await signInWithEmailAndPassword(auth, email, password);
 
-      // Optionally, you can do something after successful signin
+      navigate("/home")
       console.log('Signin successful!');
     } catch (error) {
       console.error('Error during signin:', error.message);

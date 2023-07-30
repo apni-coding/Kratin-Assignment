@@ -8,7 +8,7 @@ export default function Navbar() {
       <img src="https://cdn-icons-png.flaticon.com/128/4807/4807695.png" alt="" />
     </div>
     <div className="right">
-      <Link to="/">Home</Link>
+      <Link to="/home">Home</Link>
       <Link to="/ourservices">Our Services</Link>
       <Link to="/signin">Log Out</Link>
     </div>

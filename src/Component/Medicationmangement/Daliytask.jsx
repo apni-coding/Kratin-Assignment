@@ -36,7 +36,9 @@ export default function Daliytask({ tasks, setTasks }) {
                             <th>Time</th>
                             <th>Dose</th>
                             </tr>
+                           
                         </thead>
+                        
                        <tbody>
                         {
                             tasks.map((task) => (
