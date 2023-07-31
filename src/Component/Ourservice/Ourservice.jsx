@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Ourservices.scss";
-import Healthsupport from '../Healthsupport/Healthsupport';
 import { useNavigate } from 'react-router-dom';
 
 export default function Ourservice() {
@@ -60,6 +59,10 @@ export default function Ourservice() {
 
     if (index === 4) {
       navigate("/companionship")
+    }
+
+    if (index === 5) {
+      navigate("/notfind")
     }
 
     if (index === 6) {

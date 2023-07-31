@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Navbar.scss";
 export default function Navbar() {
+  const handlelogout = () => {
+    localStorage.removeItem('login', false)
+  }
   return (
    <div className="nav">
     <div className="logo">
@@ -10,7 +13,9 @@ export default function Navbar() {
     <div className="right">
       <Link to="/home">Home</Link>
       <Link to="/ourservices">Our Services</Link>
-      <Link to="/signin">Log Out</Link>
+      <Link to="/aboutus">About Us</Link>
+      <Link to="/contactus">Contact Us</Link>
+      <Link to="/signin"> <span onClick={handlelogout}>Log Out </span></Link>
     </div>
    </div>
   )

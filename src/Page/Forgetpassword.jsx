@@ -3,6 +3,7 @@ import { auth } from '../Firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -13,8 +14,15 @@ const ForgotPassword = () => {
 
     try {
       await auth.sendPasswordResetEmail(email);
+      toast.success({message}, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       setMessage('Password reset link sent. Check your email.');
     } catch (error) {
+      console.log(error)
+      toast.error('Error sending reset link. Please try again.', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       setMessage('Error sending reset link. Please try again.');
     }
   };
@@ -40,7 +48,7 @@ const ForgotPassword = () => {
             </p>
           </div>
         </form>
-        {message && <p className='message'>{message}</p>}
+        
       </div>
     </section>
   );

@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, {  useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import "./Login.scss";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
-import { app, auth, storage, db } from '../Firebase';
+import {  auth,  db } from '../Firebase';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const Signup = () => {
@@ -19,40 +20,35 @@ const Signup = () => {
     setProfilePicture(selectedImage);
   };
 
+  
   const handleSignup = async (event) => {
     event.preventDefault();
-
+  
     try {
       // Step 1: Create the user in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      // Step 2: Upload the profile picture to Firebase Storage (if selected)
-      if (profilePicture) {
-        const storageRef = storage.ref();
-        const profilePictureRef = storageRef.child(`profilePictures/${user.uid}`);
-        await profilePictureRef.put(profilePicture);
-        const profilePictureUrl = await profilePictureRef.getDownloadURL();
-
-        // Step 3: Update the user's profile with the profile picture URL
-        await updateProfile(user, { displayName: user.email, photoURL: profilePictureUrl });
-      }
-
-      // Step 4: Save additional user information to Firestore
+  
+      // Step 2: Save additional user information to Firestore
       await addDoc(collection(db, 'users'), {
         uid: user.uid,
         email: user.email,
         // Add other user information here if needed
       });
-
+      toast.success('Signup successful!', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       
-      console.log('Signup successful!');
-      navigate("/signin")
-      
+      navigate("/signin");
     } catch (error) {
-      console.error('Error during signup:', error);
+      console.log(profilePicture)
+      toast.error('Error during signup', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      
     }
   };
+  
 
   return (
     <section className="section">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./Daliytask.scss";
 
 export default function Daliytask({ tasks, setTasks }) {

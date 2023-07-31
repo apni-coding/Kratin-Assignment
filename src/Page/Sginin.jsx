@@ -5,6 +5,7 @@ import { auth } from '../Firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import './Login.scss';
+import { toast } from 'react-toastify';
 
 
 const SignIn = () => {
@@ -18,10 +19,13 @@ const SignIn = () => {
     try {
       // Sign in the user with email and password
       await signInWithEmailAndPassword(auth, email, password);
-
+      localStorage.setItem('login', true);
       navigate("/home")
       console.log('Signin successful!');
     } catch (error) {
+      toast.error('User id or Password not match!!', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       console.error('Error during signin:', error.message);
     }
   };
