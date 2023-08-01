@@ -39,7 +39,21 @@ The React app will be built using the following technologies:
 
 ## Screenshots
 
+![1](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/0da72c4a-7093-4c2e-bdde-86dc0914b18a)
+                                                  
+![2](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/cd0f8ff5-f6f2-40d3-a96d-bf5965adc02c)
 
+![3](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/0a526f0f-60d3-4987-8eae-01f89c90b6fc)
+
+![4](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/affefd84-320f-412f-914d-8c95d7b6824f)
+
+![5](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/1f04d270-6986-47b9-b0e6-2f67ed73c489)
+
+![6](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/5daeabc6-4187-46c8-854a-ef9177063b38)
+
+![7](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/c7ddf53f-af2f-4856-9421-f1937d6ce3ce)
+
+![8](https://github.com/apni-coding/Kratin-Assignment/assets/123900354/05343b10-f035-4fc6-9262-890444274762)
 
 ## Future Enhancements
 
